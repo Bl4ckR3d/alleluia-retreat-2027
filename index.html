@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#283329">
+    <title>Book Your Place | Alleluia Retreat 2027</title>
+    <meta name="description"
+        content="Book your place at Alleluia Retreat 2027. Choose your retreat accommodation and enter your guest details.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="booking.css">
+    <script src="booking.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Alleluia Retreat home">
+            <span class="brand-mark">A</span>
+            <span class="brand-copy">
+                <strong>ALLELUIA</strong>
+                <small>RETREAT 2027</small>
+            </span>
+        </a>
+        <a class="back-link" href="index.html">← Back to home</a>
+    </header>
+
+    <main class="booking-page">
+        <section class="booking-intro">
+            <p class="eyebrow">26–29 August 2027 · Nottingham</p>
+            <h1>Make room for <em>renewal.</em></h1>
+            <p class="intro-copy">
+                Choose your accommodation, tell us who is coming, and review your booking details.
+            </p>
+            <div class="event-facts">
+                <span>✦ Main Retreat: 3 nights</span>
+                <span>✦ Optional Youth Retreat: 1 night</span>
+            </div>
+        </section>
+
+        <div class="booking-layout">
+            <section class="booking-main">
+                <nav class="steps" aria-label="Booking progress">
+                    <button type="button" class="active" data-jump="0" aria-current="step">
+                        <span>01</span><small>Accommodation</small>
+                    </button>
+                    <button type="button" data-jump="1">
+                        <span>02</span><small>Guests</small>
+                    </button>
+                    <button type="button" data-jump="2">
+                        <span>03</span><small>Your details</small>
+                    </button>
+                    <button type="button" data-jump="3">
+                        <span>04</span><small>Review</small>
+                    </button>
+                </nav>
+
+                <form id="bookingForm" novalidate>
+                    <!-- STEP 1: ACCOMMODATION -->
+                    <section class="panel" data-panel="0">
+                        <p class="eyebrow">Step one</p>
+                        <h2>Choose your stay</h2>
+                        <p class="section-copy">
+                            Select the rooms you need. Prices shown are per room, per night.
+                        </p>
+
+                        <div class="retreat-block" id="mainWrap">
+                            <div class="retreat-heading">
+                                <div>
+                                    <span class="retreat-tag">Main event</span>
+                                    <h3>Main Retreat</h3>
+                                    <p>Thursday 26 – Sunday 29 August 2027</p>
+                                    <p class="muted">3 nights · Check-in 2:00 PM · Check-out 11:00 AM</p>
+                                </div>
+                                <label class="toggle-label">
+                                    <input id="includeMain" type="checkbox" checked>
+                                    <span>Include</span>
+                                </label>
+                            </div>
+
+                            <div id="mainOption" class="room-list">
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Single room</h4>
+                                        <p>Private accommodation for one adult, with child occupancy options.</p>
+                                    </div>
+                                    <label class="field-label" for="mainSingleRate">Occupancy</label>
+                                    <select id="mainSingleRate" class="room-rate" data-retreat="main"
+                                        data-type="single">
+                                        <option value="single_1_0">1 person — £136/night</option>
+                                    </select>
+                                    <label class="field-label" for="mainSingleQty">Number of rooms</label>
+                                    <select id="mainSingleQty" class="room-qty" data-retreat="main" data-type="single">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Twin room</h4>
+                                        <p>Two separate beds, with an option for up to one child.</p>
+                                    </div>
+                                    <label class="field-label" for="mainTwinRate">Occupancy</label>
+                                    <select id="mainTwinRate" class="room-rate" data-retreat="main" data-type="twin">
+                                        <option value="twin_2_0">2 adults — £190/night</option>
+                                        <option value="twin_1_1">1 adult + 1 child — £196/night</option>
+                                    </select>
+                                    <label class="field-label" for="mainTwinQty">Number of rooms</label>
+                                    <select id="mainTwinQty" class="room-qty" data-retreat="main" data-type="twin">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Double room</h4>
+                                        <p>A double bed, with an option for up to two children.</p>
+                                    </div>
+                                    <label class="field-label" for="mainDoubleRate">Occupancy</label>
+                                    <select id="mainDoubleRate" class="room-rate" data-retreat="main"
+                                        data-type="double">
+                                        <option value="double_2_0">2 adults — £190/night</option>
+                                        <option value="double_1_1">1 adult + 1 child — £196/night</option>
+                                    </select>
+                                    <label class="field-label" for="mainDoubleQty">Number of rooms</label>
+                                    <select id="mainDoubleQty" class="room-qty" data-retreat="main" data-type="double">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Triple room</h4>
+                                        <p>Accommodation for three adults.</p>
+                                    </div>
+                                    <label class="field-label" for="mainTripleRate">Occupancy</label>
+                                    <select id="mainTripleRate" class="room-rate" data-retreat="main"
+                                        data-type="triple">
+                                        <option value="triple_3_0">3 adults — £270/night</option>
+                                        <option value="triple_2_1">2 adults + 1 child — £250/night</option>
+                                        <option value="triple_1_2">1 adult + 2 children — £256/night</option>
+                                    </select>
+                                    <label class="field-label" for="mainTripleQty">Number of rooms</label>
+                                    <select id="mainTripleQty" class="room-qty" data-retreat="main" data-type="triple">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Quadruple room</h4>
+                                        <p>Accommodation for four adults.</p>
+                                    </div>
+                                    <label class="field-label" for="mainQuadRate">Occupancy</label>
+                                    <select id="mainQuadRate" class="room-rate" data-retreat="main" data-type="quad">
+                                        <option value="quad_4_0">4 adults — £340/night</option>
+                                        <option value="quad_2_2">2 adults + 2 children — £310/night</option>
+                                    </select>
+                                    <label class="field-label" for="mainQuadQty">Number of rooms</label>
+                                    <select id="mainQuadQty" class="room-qty" data-retreat="main" data-type="quad">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="retreat-block youth-block" id="youthWrap">
+                            <div class="retreat-heading">
+                                <div>
+                                    <span class="retreat-tag">Optional extra</span>
+                                    <h3>Youth Retreat</h3>
+                                    <p>Wednesday 25 – Thursday 26 August 2027</p>
+                                    <p class="muted">1 night · Check-in 2:00 PM · Check-out 11:00 AM</p>
+                                </div>
+                                <label class="toggle-label">
+                                    <input id="includeYouth" type="checkbox">
+                                    <span>Include</span>
+                                </label>
+                            </div>
+                            <p class="section-copy">
+                                Add a Youth Retreat room if needed. Select the number of rooms below.
+                            </p>
+
+                            <div id="youthOption" class="room-list">
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Single room</h4>
+                                        <p>One person · £136 for the night.</p>
+                                    </div>
+                                    <label class="field-label" for="youthSingleQty">Number of rooms</label>
+                                    <select id="youthSingleQty" class="room-qty" data-retreat="youth"
+                                        data-type="single">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <div class="room-group">
+                                    <div class="room-info">
+                                        <h4>Double room</h4>
+                                        <p>Two people sharing · £190 for the night.</p>
+                                    </div>
+                                    <label class="field-label" for="youthDoubleQty">Number of rooms</label>
+                                    <select id="youthDoubleQty" class="room-qty" data-retreat="youth"
+                                        data-type="double">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="inline-error" id="roomError" role="alert"></p>
+                        <div class="form-actions">
+                            <span></span>
+                            <button class="primary-button" type="button" data-next>Continue to guests →</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 2: GUESTS -->
+                    <section class="panel" data-panel="1" hidden>
+                        <p class="eyebrow">Step two</p>
+                        <h2>Who is joining you?</h2>
+                        <p class="section-copy">
+                            Add each person attending. Guests aged 12 or younger are priced as children where the
+                            selected room allows it. Ages 13–17 are priced as adults, but their age is still recorded.
+                        </p>
+
+                        <div class="guest-toolbar">
+                            <div>
+                                <h3>Guest details</h3>
+                                <p class="muted">Please include the lead guest in this list.</p>
+                            </div>
+                            <button class="secondary-button" type="button" id="addGuest">+ Add guest</button>
+                        </div>
+
+                        <div id="guestList"></div>
+                        <p class="inline-error" id="guestError" role="alert"></p>
+
+                        <template id="guestTemplate">
+                            <article class="guest-card">
+                                <div class="guest-card-heading">
+                                    <h4 class="guest-title">Guest</h4>
+                                    <button type="button" class="remove-guest" aria-label="Remove guest">Remove</button>
+                                </div>
+                                <div class="field-grid">
+                                    <label class="field-label">First name
+                                        <input class="guest-first" type="text" autocomplete="given-name" required
+                                            maxlength="80">
+                                    </label>
+                                    <label class="field-label">Last name
+                                        <input class="guest-last" type="text" autocomplete="family-name" required
+                                            maxlength="80">
+                                    </label>
+
+                                    <label class="field-label">Age
+                                        <input class="guest-age" type="number" min="0" max="120" step="1" required>
+                                    </label>
+
+                                    <label class="field-label">Dietary requirements
+                                        <input class="guest-diet" type="text" maxlength="250"
+                                            placeholder="e.g. vegetarian, none">
+                                    </label>
+                                    <label class="field-label full-field">Allergies
+                                        <textarea class="guest-allergies" rows="2" maxlength="500"
+                                            placeholder="List any allergies, or enter None"></textarea>
+                                    </label>
+                                </div>
+
+                                <div class="guest-attendance">
+                                    <label><input class="guest-main" type="checkbox" checked> Attending Main
+                                        Retreat</label>
+                                    <label><input class="guest-youth" type="checkbox"> Attending Youth Retreat</label>
+                                </div>
+
+                                <div class="field-grid">
+                                    <label class="field-label">Main Retreat room
+                                        <select class="guest-main-room">
+                                            <option value="">Select a room</option>
+                                        </select>
+                                    </label>
+                                    <label class="field-label">Youth Retreat room
+                                        <select class="guest-youth-room">
+                                            <option value="">Select a room</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <p class="guest-note">Room assignments are a planning aid in this preview. Final room
+                                    capacity and guest assignments must be checked before a real booking can be
+                                    submitted.</p>
+                            </article>
+                        </template>
+
+                        <div class="form-actions">
+                            <button class="secondary-button" type="button" data-prev>← Back</button>
+                            <button class="primary-button" type="button" data-next>Continue to your details →</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 3: LEAD GUEST -->
+                    <section class="panel" data-panel="2" hidden>
+                        <p class="eyebrow">Step three</p>
+                        <h2>Your contact details</h2>
+                        <p class="section-copy">
+                            We’ll use these details for booking correspondence. Please make sure your email address is
+                            correct.
+                        </p>
+
+                        <div class="field-grid contact-grid">
+                            <label class="field-label">First name
+                                <input id="first" name="first" type="text" autocomplete="given-name" required
+                                    maxlength="80">
+                            </label>
+                            <label class="field-label">Last name
+                                <input id="last" name="last" type="text" autocomplete="family-name" required
+                                    maxlength="80">
+                            </label>
+                            <label class="field-label">Email address
+                                <input id="email" name="email" type="email" autocomplete="email" required
+                                    maxlength="254">
+                            </label>
+                            <label class="field-label">Phone number
+                                <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40">
+                            </label>
+                        </div>
+
+                        <div class="notice">
+                            <strong>Payment</strong>
+                            <p>Bank transfer only. Payment instructions and a booking reference will need to be supplied
+                                by the booking team after the website is connected to the booking system.</p>
+                        </div>
+
+                        <label class="consent-label">
+                            <input id="acceptTerms" type="checkbox" required>
+                            <span>I have checked the details above and understand this page is currently a booking
+                                preview, not a confirmed reservation.</span>
+                        </label>
+
+                        <p class="inline-error" id="contactError" role="alert"></p>
+                        <div class="form-actions">
+                            <button class="secondary-button" type="button" data-prev>← Back</button>
+                            <button class="primary-button" type="button" id="confirmDetails">Review booking →</button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 4: REVIEW -->
+                    <section class="panel" data-panel="3" hidden>
+                        <p class="eyebrow">Step four</p>
+                        <h2>Review your details</h2>
+                        <p class="section-copy">Check your selections before you continue.</p>
+
+                        <div id="review" class="review-content"></div>
+
+                        <div class="notice preview-notice">
+                            <strong>Preview mode</strong>
+                            <p>This page does not yet submit or reserve a booking. No payment is taken and no
+                                reservation is created by clicking the button below.</p>
+                        </div>
+
+                        <p class="inline-error" id="submitError" role="alert"></p>
+                        <div class="form-actions">
+                            <button class="secondary-button" type="button" data-prev>← Back to details</button>
+                            <button class="primary-button" type="submit">Finish preview</button>
+                        </div>
+                    </section>
+                </form>
+
+                <section class="panel success-panel" id="previewComplete" hidden aria-live="polite">
+                    <p class="eyebrow">Preview complete</p>
+                    <h2>Your details are ready to review.</h2>
+                    <p>This was only a demonstration. Your information has not been sent to the retreat team, and no
+                        rooms have been reserved.</p>
+                    <button class="secondary-button" type="button" id="editBooking">Return to booking</button>
+                </section>
+            </section>
+
+            <!-- PRICE SUMMARY -->
+            <aside class="booking-summary">
+                <div class="summary-card">
+                    <p class="eyebrow">Your estimate</p>
+                    <h2>Booking summary</h2>
+                    <div class="summary-event">
+                        <span class="summary-icon">✦</span>
+                        <div>
+                            <strong>Alleluia Retreat 2027</strong>
+                            <p>Nottingham, United Kingdom</p>
+                        </div>
+                    </div>
+                    <div class="summary-line">
+                        <span>Main Retreat</span>
+                        <strong id="mainSubtotal">£0</strong>
+                    </div>
+                    <p class="summary-detail">3 nights · Selected rooms</p>
+                    <div class="summary-line">
+                        <span>Youth Retreat</span>
+                        <strong id="youthSubtotal">£0</strong>
+                    </div>
+                    <p class="summary-detail">1 night · Optional</p>
+                    <div class="summary-total">
+                        <span>Estimated total</span>
+                        <strong id="grandTotal">£0</strong>
+                    </div>
+                    <p class="summary-footnote">Estimate only. Final prices and availability must be confirmed by the
+                        booking system.</p>
+                </div>
+                <div class="venue-card">
+                    <h3>Retreat location</h3>
+                    <p>Mansfield Road, Eastwood, Nottingham NG16 3SS</p>
+                    <p class="muted">Main Retreat: 26–29 August 2027</p>
+                    <p class="muted">Youth Retreat: 25–26 August 2027</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+        <p>Alleluia Retreat 2027 · A time to gather, worship and renew.</p>
+    </footer>
+</body>
+
+</html>
