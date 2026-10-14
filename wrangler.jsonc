@@ -1,9 +1,12 @@
 
 {
-  "$schema": "https://schema.konfig.dev/wrangler.schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "alleluia-retreat-2027",
   "main": "worker.js",
   "compatibility_date": "2026-10-14",
+  "secrets": {
+    "required": ["BOOKING_API_SECRET", "APPS_SCRIPT_URL"]
+  },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
