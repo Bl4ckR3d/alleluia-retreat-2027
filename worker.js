@@ -1,17 +1,28 @@
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/booking") {
-      return Response.json({
-        success: true,
-        message: "Alleluia Retreat booking API is running."
-      });
+      if (request.method !== "POST") {
+        return Response.json(
+          { success: false, error: "Method not allowed." },
+          {
+            status: 405,
+            headers: { Allow: "POST" }
+          }
+        );
+      }
+
+      return Response.json(
+        {
+          success: false,
+          error: "Booking API is not connected yet."
+        },
+        { status: 503 }
+      );
     }
 
-    return new Response("Worker test passed.", {
-      status: 200,
-      headers: { "Content-Type": "text/plain; charset=utf-8" }
-    });
+    return env.ASSETS.fetch(request);
   }
 };
