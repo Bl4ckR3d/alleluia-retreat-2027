@@ -1,0 +1,12 @@
+
+{
+  "$schema": "https://schema.konfig.dev/wrangler.schema.json",
+  "name": "alleluia-retreat-2027",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-14",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
+}
